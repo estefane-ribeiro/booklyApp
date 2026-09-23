@@ -28,7 +28,7 @@ function App() {
     >
       <Aside />
       <main
-        className=" max-w-full *:text-white
+        className=" max-w-full *:text-white overflow-x-hidden
        "
       >
         <Header />

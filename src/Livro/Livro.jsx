@@ -15,7 +15,9 @@ const Livro = ({ title, foto, autor, chave, generos, edicoes, publicacao }) => {
   return (
     <>
       <div
-        className={`${menuCollapse || menuMobile ? "w-35 p-2 lg:w-46" : "w-46 p-4"} flex flex-col  bg-transparent 
+        className={`${menuCollapse || menuMobile ? "w-35 p-2 lg:w-46" : "w-46 p-4"} flex flex-col  bg-transparent shrink-0
+
+ 
                 hover:bg-violet-950/20 rounded-2xl cursor-pointer transition hover:scale-105`}
         onClick={handleClickBook}
       >

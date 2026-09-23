@@ -36,7 +36,7 @@ const BookCarousel = ({ dados }) => {
           <MdArrowForwardIos />
         </button>
         <div
-          className="flex flex-1 gap-x-4"
+          className="flex gap-x-4 "
           style={{ transform: `translate3d(-${indice * 170}px, 0, 0)` }}
         >
           {dados &&
