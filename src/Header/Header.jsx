@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <div
-      className={`py-8  ${menuCollapse || menuMobile ? "w-[95vw] sm:pr-8" : "w-[80vw]"}`}
+      className={`py-8 z-10  ${menuCollapse || menuMobile ? "w-[95vw] sm:pr-8" : "w-[80vw]"}`}
     >
       <div
         className={`top flex  ml-10 items-center gap-1 mb-10 ${menuMobile ? "justify-end max-sm:gap-0" : ""} 
