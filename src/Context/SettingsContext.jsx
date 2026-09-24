@@ -24,6 +24,7 @@ export const SettingsStorage = ({ children }) => {
       if (width < 770) {
         setMenuMobile(true);
         setOpenMenu(false);
+        setMenuCollapse(false);
       } else if (width >= 770 && width < 1024) {
         setMenuMobile(false);
         setMenuCollapse(true);

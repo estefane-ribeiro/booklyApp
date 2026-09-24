@@ -29,23 +29,23 @@ const Aside = () => {
 
   return (
     <div
-      className={`${openMenu && menuMobile ? "fixed w-full z-20 bg-black/85 overflow-hidden " : "relative bg-[#020617]"} z-20 `}
+      className={`${openMenu && menuMobile ? "fixed w-full z-20 bg-black/65 overflow-hidden " : "relative bg-transparent"} ${!openMenu && menuMobile ? "absolute" : ""} col-start-1 row-start-1 z-20 `}
     >
       <button
-        className={`${menuMobile ? "block fixed top-8 left-4 text-3xl text-white z-30" : "hidden"} ${openMenu && menuMobile ? "hidden" : ""} `}
+        className={`${menuMobile ? "block fixed top-8 left-4 text-3xl text-white z-30 cursor-pointer" : "hidden"} ${openMenu && menuMobile ? "hidden" : ""} `}
         onClick={openMenuMobile}
       >
         <MdDensityMedium />
       </button>
       <aside
-        className={`${menuCollapse ? "bg-[#020617]  p-2" : ""} 
+        className={`${menuCollapse ? "md:bg-[#020617]  p-2" : ""} 
                     {${menuMobile ? "hidden" : "flex flex-col justify-center items-start p-8"}} 
-                    h-screen sticky top-0 z-20 *:text-white {${menuMobile && openMenu ? "flex w-full justify-center items-center" : ""}
+                    h-screen sticky top-0 z-20 *:text-white  {${menuMobile && openMenu ? "flex w-full justify-center items-center" : ""}
                     {${!menuMobile && !menuCollapse ? "bg-[#020617] fixed p-8" : ""}`}
         onClick={handleClickMenuMobile}
       >
         <button
-          className={`${menuMobile && openMenu ? "block absolute top-8 right-2 text-3xl" : "hidden"}`}
+          className={`${menuMobile && openMenu ? "block absolute top-8 right-2 text-3xl cursor-pointer" : "hidden"}`}
           onClick={closedMenuMobile}
         >
           <MdClose />

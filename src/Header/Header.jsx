@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import image2 from "../assets/image2.png";
-import { MdArrowForward } from "react-icons/md";
+import { MdArrowForward, MdOutlineLogin } from "react-icons/md";
 import { SettingsContext } from "../Context/SettingsContext";
 
 const Header = () => {
@@ -8,10 +8,10 @@ const Header = () => {
 
   return (
     <div
-      className={`py-8  ${menuCollapse || menuMobile ? "w-[95vw] pr-8" : "w-[80vw]"}`}
+      className={`py-8  ${menuCollapse || menuMobile ? "w-[95vw] sm:pr-8" : "w-[80vw]"}`}
     >
       <div
-        className={`top flex  mx-10 items-center gap-1 mb-10 ${menuMobile ? "justify-center" : ""} 
+        className={`top flex  ml-10 items-center gap-1 mb-10 ${menuMobile ? "justify-end max-sm:gap-0" : ""} 
                   ${menuCollapse ? "justify-center lg:justify-between" : "w-[70vw] justify-between "} `}
       >
         <input
@@ -19,16 +19,19 @@ const Header = () => {
           placeholder="🔍︎ Buscar livros, autores ou categorias."
           className="p-2 size-8 rounded-full mr-2 focus:size-max md:p-4 md:w-1/2 bg-gray-900 md:rounded-2xl lg:max-w-1/3"
         />
-        <div className="space-x-4">
+        <div className="md:space-x-2">
           <button
             id="login"
-            className="px-4 py-2 font-bold rounded-lg bg-linear-to-r from-violet-950 to-violet-700 hover:from-violet-500 hover:to-violet-950 hover:scale-105 transition duration-200 cursor-pointer"
+            className="max-sm:rounded-full max-sm:p-2 px-4 py-2 font-bold rounded-lg bg-linear-to-r from-violet-950 to-violet-700 hover:from-violet-500 hover:to-violet-950 hover:scale-105 transition duration-200 cursor-pointer"
           >
-            Login
+            <span className="max-sm:block sm:hidden">
+              <MdOutlineLogin />
+            </span>
+            <span className="max-sm:hidden">Login</span>
           </button>
           <button
             id="cadastro"
-            className="px-4 py-2 font-bold rounded-lg bg-linear-to-r from-violet-950 to-violet-700 hover:from-violet-500 hover:to-violet-950 hover:scale-105 transition duration-200 cursor-pointer"
+            className="max-sm:hidden px-4 py-2 font-bold rounded-lg bg-linear-to-r from-violet-950 to-violet-700 hover:from-violet-500 hover:to-violet-950 hover:scale-105 transition duration-200 cursor-pointer"
           >
             Cadastra-se
           </button>
