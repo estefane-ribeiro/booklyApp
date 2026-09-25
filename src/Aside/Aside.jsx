@@ -59,10 +59,16 @@ const Aside = () => {
           ${menuMobile && !openMenu ? "hidden" : ""} mt-4`}
           >
             <h1 className="text-4xl text-white font-bold mb-3">
-              <a href="/" className={`${menuCollapse ? "hidden" : "block"}`}>
+              <a
+                href="/"
+                className={`${menuCollapse && !menuMobile ? "hidden" : "block"}`}
+              >
                 Bookly <span className="text-blue-800">.</span>
               </a>
-              <a href="" className={`${menuCollapse ? "block" : "hidden"} `}>
+              <a
+                href=""
+                className={`${menuCollapse && !menuMobile ? "block" : "hidden"} `}
+              >
                 B <span className="text-blue-800">.</span>
               </a>
             </h1>
@@ -71,7 +77,9 @@ const Aside = () => {
               className={`flex gap-3 items-center bg-linear-to-r from-violet-950 to-violet-700 p-4 rounded-2xl hover:bg-blue-800 `}
             >
               <MdHome />
-              <span className={`${menuCollapse ? "hidden" : "block"}`}>
+              <span
+                className={`${menuCollapse && !menuMobile ? "hidden" : "block"}`}
+              >
                 Home
               </span>
             </a>
@@ -80,7 +88,9 @@ const Aside = () => {
               className="flex gap-3 items-center  p-4 rounded-2xl hover:bg-linear-to-r hover:from-violet-950 hover:to-violet-700 "
             >
               <MdExplore />{" "}
-              <span className={`${menuCollapse ? "hidden" : "block"}`}>
+              <span
+                className={`${menuCollapse && !menuMobile ? "hidden" : "block"} `}
+              >
                 Explorar
               </span>
             </a>
@@ -89,7 +99,9 @@ const Aside = () => {
               className="flex gap-3 items-center p-4 rounded-2xl hover:bg-linear-to-r hover:from-violet-950 hover:to-violet-700 active:scale-95 active:from-violet-700 active:to-violet-950 "
             >
               <MdCategory />
-              <span className={`${menuCollapse ? "hidden" : "block"}`}>
+              <span
+                className={`${menuCollapse && !menuMobile ? "hidden" : "block"}`}
+              >
                 Categorias
               </span>
             </a>
@@ -98,7 +110,9 @@ const Aside = () => {
               className="flex gap-3 items-center  p-4 rounded-2xl hover:bg-linear-to-r hover:from-violet-950 hover:to-violet-700 active:scale-95 active:from-violet-700 active:to-violet-950"
             >
               <MdFavorite />{" "}
-              <span className={`${menuCollapse ? "hidden" : "block"}`}>
+              <span
+                className={`${menuCollapse && !menuMobile ? "hidden" : "block"}`}
+              >
                 Favoritos
               </span>
             </a>

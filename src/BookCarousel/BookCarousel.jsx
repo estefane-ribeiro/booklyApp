@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import Livro from "../Livro/Livro";
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 import { SettingsContext } from "../Context/SettingsContext";
@@ -6,6 +6,46 @@ import { SettingsContext } from "../Context/SettingsContext";
 const BookCarousel = ({ dados }) => {
   const { menuCollapse, menuMobile } = useContext(SettingsContext);
   const [indice, setIndice] = useState(0);
+  const startX = useRef(0);
+
+  function handleTouchStart(e) {
+    startX.current = e.touches[0].clientX;
+  }
+
+  // function handleTouchMove(e) {
+  //   currentX.current = e.touches[0].clientX;
+  //   const distance = currentX.current - startX.current;
+  //   // const distance = endX - startX;
+
+  //   if (distance < 0) {
+  //     setIndice((ant) => {
+  //       return ant < 16 ? ant + 3 : 20;
+  //     });
+  //   } else if (distance > 0) {
+  //     setIndice((ant) => {
+  //       return ant > 3 ? ant - 3 : 0;
+  //     });
+  //   }
+  //   console.log(distance);
+  // }
+
+  function handleTouchEnd(e) {
+    const endX = e.changedTouches[0].clientX;
+
+    const distance = endX - startX.current;
+
+    if (distance > 50) {
+      setIndice((ant) => {
+        return ant > 3 ? ant - 3 : 0;
+      });
+    }
+
+    if (distance < -50) {
+      setIndice((ant) => {
+        return ant < 16 ? ant + 3 : 20;
+      });
+    }
+  }
 
   function handleClicktoRight() {
     setIndice((i) => i + 1);
@@ -27,7 +67,7 @@ const BookCarousel = ({ dados }) => {
       <h2 className="capitalize text-3xl mb-4">{dados?.name}</h2>
       <div>
         <button
-          className={`${menuCollapse ? "md:left-[calc(100vw-150px)] text-3xl" : ""} 
+          className={`${menuCollapse ? "md:left-[calc(100vw-150px)] md:text-3xl" : ""} 
                       absolute top-1/2  bg-gray-950/70 rounded-full flex items-center justify-center px-3  z-20 py-3 transition duration-200
                     hover:bg-gray-950/90 hover:scale-105 cursor-pointer
                       ${menuMobile ? "right-0" : ""}
@@ -39,6 +79,8 @@ const BookCarousel = ({ dados }) => {
         <div
           className="flex gap-x-4 transition duration-300 "
           style={{ transform: `translate3d(-${indice * 170}px, 0, 0)` }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           {dados &&
             livrosCarousel.map((livro, indice) => (
